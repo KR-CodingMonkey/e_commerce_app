@@ -1,8 +1,48 @@
 import pymysql
 from os import system
-from msvcrt import getch
+# from msvcrt import getch
 from time import sleep
 from datetime import datetime
+
+######
+class _Getch:
+    """Gets a single character from standard input.  Does not echo to the
+screen."""
+    def __init__(self):
+        try:
+            self.impl = _GetchWindows()
+        except ImportError:
+            self.impl = _GetchUnix()
+
+    def __call__(self): return self.impl()
+
+
+class _GetchUnix:
+    def __init__(self):
+        import tty, sys
+
+    def __call__(self):
+        import sys, tty, termios
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(sys.stdin.fileno())
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+
+class _GetchWindows:
+    def __init__(self):
+        import msvcrt
+
+    def __call__(self):
+        import msvcrt
+        return msvcrt.getch()
+##########################################################
+
+getch = _Getch()
 
 class member:
     def __init__(self, id:str, email, pwd):
@@ -706,21 +746,21 @@ def Member_Mode(id:str):
 ### main
 global conn
 
-# conn = pymysql.connect(
-#     host = '127.0.0.1', 
-#     user = 'root', 
-#     password='', 
-#     port = 13306, 
-#     db = 'e_commerce', 
-#     charset = 'utf8')
-
 conn = pymysql.connect(
-    host = '172.17.0.2', 
+    host = '127.0.0.1', 
     user = 'root', 
     password='', 
-    port = 3306, 
+    port = 13306, 
     db = 'e_commerce', 
     charset = 'utf8')
+
+# conn = pymysql.connect(
+#     host = '172.17.0.2', 
+#     user = 'root', 
+#     password='', 
+#     port = 3306, 
+#     db = 'e_commerce', 
+#     charset = 'utf8')
 
 if __name__ == '__main__':
     Init_Display()
