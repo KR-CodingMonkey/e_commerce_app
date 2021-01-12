@@ -116,7 +116,7 @@ def Login_Page():
 
     # result값이 존재하고 회원일 경우
     elif result and result[0] == pw:
-        corsor.close()
+        cursor.close()
         Member_Mode(id)
 
     # 테이블에 존재하지 않을때
@@ -722,7 +722,8 @@ conn = pymysql.connect(
     db = 'e_commerce', 
     charset = 'utf8')
 
-Init_Display()
-Main_Page()
+if __name__ == '__main__':
+    Init_Display()
+    Main_Page()
 
-conn.close()
+    conn.close()
