@@ -1,5 +1,4 @@
 import pymysql
-import urllib.parse
 from os import system
 # from msvcrt import getch
 from time import sleep
@@ -430,7 +429,7 @@ def Admin_Mode():
             elif mum == 3: 
 
                 system('clear')
-                print("VIP 고객 리스트(Top 5)\n")
+                print("VIP 고객 리스트\n")
                 cursor = conn.cursor()
                 
                 sql_member_total = "select memberID, sum(total_price) as total from order_list Group by memberID order by sum(total_price) desc"
@@ -456,7 +455,7 @@ def Admin_Mode():
 
             elif mum == 4: 
                 system('clear')
-                print("인기 상품 리스트(Top 5)")
+                print("인기 상품 리스트")
                 cursor = conn.cursor()
                 
                 sql_member_total = "select item_id, sum(order_qty) as total_qty from order_list Group by item_id order by sum(order_qty) desc"

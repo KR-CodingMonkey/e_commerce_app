@@ -1,5 +1,4 @@
 import pymysql
-import urllib.parse
 from os import system
 # from msvcrt import getch
 from time import sleep
@@ -120,7 +119,7 @@ def Main_Page():
             key = ord(getch())
             if key == 80: #Down arrow
                 mum += 1 
-                if mum > 2: mum = 0;msvcrt 
+                if mum > 2: mum = 0;
 
             elif key == 72: #Up arrow
                 mum -= 1 
@@ -228,7 +227,9 @@ def Admin_Mode():
     # 5.주별/월별로 가장 많이 주문된 상품 목록을 확인할 수 있다.
     mum = 0;
 
-    while(1):    
+    while(1):
+
+            
         system('cls')
         print("┌────────────────────────────┐")
         print("    Administrator Mode v0.1")
@@ -427,7 +428,7 @@ def Admin_Mode():
             elif mum == 3: 
 
                 system('cls')
-                print("VIP 고객 리스트(Top 5)\n")
+                print("VIP 고객 리스트\n")
                 cursor = conn.cursor()
                 
                 sql_member_total = "select memberID, sum(total_price) as total from order_list Group by memberID order by sum(total_price) desc"
@@ -453,7 +454,7 @@ def Admin_Mode():
 
             elif mum == 4: 
                 system('cls')
-                print("인기 상품 리스트(Top 5)")
+                print("인기 상품 리스트")
                 cursor = conn.cursor()
                 
                 sql_member_total = "select item_id, sum(order_qty) as total_qty from order_list Group by item_id order by sum(order_qty) desc"
@@ -472,7 +473,6 @@ def Admin_Mode():
                         break;
                     else:
                         count += 1
-
 
                 print(strOut)
                 exit = input("뒤로가려면 아무키나 누르세요.\n")
@@ -744,7 +744,7 @@ def Member_Mode(id:str):
                 
             else:
                 # 로그아웃
-                break
+                break 
 
 ### main
 global conn
@@ -766,6 +766,7 @@ conn = pymysql.connect(
 #     charset = 'utf8')
 
 if __name__ == '__main__':
+    # DB_Init()
     Init_Display()
     Main_Page()
 
