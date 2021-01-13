@@ -1,10 +1,14 @@
 import pymysql
+import sys
 from os import system
 # from msvcrt import getch
 from time import sleep
 from datetime import datetime
 
-######
+reload(sys)
+sys.setdefaultencoding("UTF-8")
+
+##########################################################
 class _Getch:
     """Gets a single character from standard input.  Does not echo to the
 screen."""
@@ -42,6 +46,7 @@ class _GetchWindows:
         return msvcrt.getch()
 ##########################################################
 
+# 함수 재정의
 getch = _Getch()
 
 class member:
