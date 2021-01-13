@@ -1,10 +1,12 @@
 import pymysql
+import urllib.parse
 from os import system
 # from msvcrt import getch
 from time import sleep
 from datetime import datetime
 
-######
+
+##################################3
 class _Getch:
     """Gets a single character from standard input.  Does not echo to the
 screen."""

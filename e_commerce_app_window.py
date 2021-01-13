@@ -1,12 +1,10 @@
 import pymysql
-import sys
+import urllib.parse
 from os import system
 # from msvcrt import getch
 from time import sleep
 from datetime import datetime
 
-reload(sys)
-sys.setdefaultencoding("UTF-8")
 
 ##########################################################
 class _Getch:
