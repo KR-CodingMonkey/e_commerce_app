@@ -47,7 +47,7 @@ class _GetchWindows:
 getch = _Getch()
 
 class member:
-    def __init__(self, id:str, email, pwd):
+    def __init__(self, id, email, pwd):
         self.id = id
         self.email = email
         self.pwd = pwd

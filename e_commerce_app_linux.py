@@ -4,7 +4,6 @@ from os import system
 from time import sleep
 from datetime import datetime
 
-
 ##################################3
 class _Getch:
     """Gets a single character from standard input.  Does not echo to the
@@ -46,7 +45,7 @@ class _GetchWindows:
 getch = _Getch()
 
 class member:
-    def __init__(self, id:str, email, pwd):
+    def __init__(self, id, email, pwd):
         self.id = id
         self.email = email
         self.pwd = pwd
