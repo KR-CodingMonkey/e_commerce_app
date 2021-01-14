@@ -749,25 +749,27 @@ def Member_Mode(id:str):
                 break
 
 ### main
-global conn
-
-# conn = pymysql.connect(
-#     host = '127.0.0.1', 
-#     user = 'root', 
-#     password='', 
-#     port = 13306, 
-#     db = 'e_commerce', 
-#     charset = 'utf8')
-
-conn = pymysql.connect(
-    host = '172.17.0.2', 
-    user = 'root', 
-    password='', 
-    port = 3306, 
-    db = 'e_commerce', 
-    charset = 'utf8')
-
 if __name__ == '__main__':
+
+    global conn
+
+    # conn = pymysql.connect(
+    #     host = '127.0.0.1', 
+    #     user = 'root', 
+    #     password='', 
+    #     port = 13306, 
+    #     db = 'e_commerce', 
+    #     charset = 'utf8')
+
+    conn = pymysql.connect(
+        host = '172.17.0.2', 
+        user = 'root', 
+        password='', 
+        port = 3306, 
+        db = 'e_commerce', 
+        charset = 'utf8')
+    
+    # DB_Init()    
     Init_Display()
     Main_Page()
 
