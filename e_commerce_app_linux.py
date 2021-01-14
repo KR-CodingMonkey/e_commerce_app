@@ -170,11 +170,12 @@ def Login_Page():
         return 0
 
 def Singup_Page():
-    system('clear')
-    print("-Sign up-\n")
-    sleep(0.5)
-
+    
     while(1):
+        system('clear')
+        print("-Sign up-\n")
+        sleep(0.5)
+
         new_id = input("아이디: ")
         new_email = input("이메일: ")
         new_pwd = input("비밀번호: ")
@@ -216,7 +217,7 @@ def Singup_Page():
             print("\n비밀번호를 확인해주세요!!\n")
             sleep(3)
             system('clear')
-            print("-sign up-\n")
+            break
 
 def Admin_Mode():
 
